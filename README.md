@@ -1,1 +1,1 @@
-# Calculator
+# java calculator with parsing expressions from string
