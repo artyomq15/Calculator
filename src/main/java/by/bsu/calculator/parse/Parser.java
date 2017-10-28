@@ -1,6 +1,6 @@
 package by.bsu.calculator.parse;
 
-import by.bsu.calculator.enums.Sign;
+import by.bsu.calculator.enums.SignType;
 import by.bsu.calculator.exception.ValidatorException;
 import by.bsu.calculator.validator.Validator;
 
@@ -10,24 +10,24 @@ import java.util.regex.Pattern;
 import static by.bsu.calculator.constants.ExpressionConstants.*;
 
 public class Parser {
-    private static final Pattern pattern = Pattern.compile(EXPRESSION_PATTERN);
+    private static final Pattern PATTERN = Pattern.compile(EXPRESSION_PATTERN);
 
-    public static Sign parseSign(String expression) throws ValidatorException{
+    public static SignType parseSign(String expression) throws ValidatorException{
         if (Validator.isValidExpression(expression)){
-            Matcher matcher = pattern.matcher(expression);
+            Matcher matcher = PATTERN.matcher(expression);
             matcher.matches();
             String sign = matcher.group(SIGN_GROUP);
             if (sign.equals(PLUS_SIGN)){
-                return Sign.PLUS;
+                return SignType.PLUS;
             }
             if (sign.equals(MINUS_SIGN)){
-                return Sign.MINUS;
+                return SignType.MINUS;
             }
             if (sign.equals(MULTIPLICATION_SIGN)){
-                return Sign.MULTIPLICATION;
+                return SignType.MULTIPLICATION;
             }
             if (sign.equals(DIVISION_SIGN)){
-                return Sign.DIVISION;
+                return SignType.DIVISION;
             }
         }
         return null;
@@ -35,7 +35,7 @@ public class Parser {
 
     public static double[] parseValues(String expression) throws ValidatorException{
         if (Validator.isValidExpression(expression)){
-            Matcher matcher = pattern.matcher(expression);
+            Matcher matcher = PATTERN.matcher(expression);
             matcher.matches();
             double[] values = new double[2];
             if (matcher.group(FIRST_VALUE_WITH_SIGN_GROUP).startsWith("-")){

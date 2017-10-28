@@ -1,5 +1,5 @@
 package by.bsu.calculator.enums;
 
-public enum  Sign {
+public enum SignType {
     PLUS, MINUS, MULTIPLICATION, DIVISION
 }

@@ -1,7 +1,7 @@
 package by.bsu.calculator;
 
 import by.bsu.calculator.constants.ExpressionConstants;
-import by.bsu.calculator.enums.Sign;
+import by.bsu.calculator.enums.SignType;
 import by.bsu.calculator.exception.CalculatorException;
 import by.bsu.calculator.exception.ValidatorException;
 import by.bsu.calculator.parse.Parser;
@@ -12,7 +12,7 @@ public class Calculator {
     }
     public double calculateExpression(String expression) throws CalculatorException{
         try {
-            Sign sign = Parser.parseSign(expression);
+            SignType sign = Parser.parseSign(expression);
             double[] values = Parser.parseValues(expression);
             double firstValue = values[ExpressionConstants.FIRST_VALUE_INDEX];
             double secondValue = values[ExpressionConstants.SECOND_VALUE_INDEX];

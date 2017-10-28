@@ -1,6 +1,6 @@
 package by.bsu.calculator.parse;
 
-import by.bsu.calculator.enums.Sign;
+import by.bsu.calculator.enums.SignType;
 import by.bsu.calculator.exception.ValidatorException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ParseTest {
     @Test
     public void parseSignTest() throws ValidatorException{
-        Assert.assertEquals(Sign.PLUS, Parser.parseSign("6 + 9"));
+        Assert.assertEquals(SignType.PLUS, Parser.parseSign("6 + 9"));
     }
 
     @Test
